@@ -1,6 +1,6 @@
 'use strict';
 
-/// 1
+// 1
 class Weight {
     constructor(weight, type) {
         let expWeight;
@@ -67,7 +67,6 @@ let widthBoxThree = new Length(1, 'km'),
 const boxThree = new Box(widthBoxThree.length, heightBoxThree.length, depthBoxThree.length, weightBoxThree.weight);
 console.log(boxThree);
 
-
 // 2
 /* let boxes = [
     new Box(10, 20, 30, 40),
@@ -120,27 +119,12 @@ console.log(maxDepth, 'Max depth');
 console.log(maxHeight, 'Max height');
 console.log(maxWidth, 'Max width');
 
-/* //max function
-function maxValue (arr, value) {
-    let max = arr[0];
-    for (let box of arr) {
-        if (max[value] < box[value]) {
-            max = box;
-        }
-    }
-}
-
-let maxx = maxValue(boxes, height);
-console.log(maxx);
- */
 // 3
-
 let sumWeight = 0;
 boxes.forEach(element => {
     sumWeight += element.weight
   });
 console.log(sumWeight, 'Total weight');
-
 
 class Car {
     constructor(capacity) {
@@ -179,15 +163,15 @@ console.log(firstMatchedCar);
 //4
 let n = 5;
 let arrFull = [];
-for (let i = 0; i <= n-1; i++) {
+for (let i = 0; i <= n - 1; i++) {
     arrFull[i] = []; //столбцы каждая строка - будет новый пустой массив
-    for (j = 0; j <= n-1 ; j++) {
+    for (j = 0; j <= n - 1 ; j++) {
         arrFull[i][j] = '1';   // - строки, каждый новый пустой массив - заполняется 1
     }
 }
 console.log(arrFull);
 
-
+// 4.1
 let arrUnder = [];
 for (let i = 0; i <= n - 1; i++) {
     arrUnder[i] = [];
@@ -199,19 +183,60 @@ for (let i = 0; i <= n - 1; i++) {
         arrUnder[i].push('0');
     }
     if (i == 2) {
-        for (let j = 3; j <= n-1; j++) {
+        for (let j = 3; j <= n - 1; j++) {
             arrUnder[i][j] = '0';
         }
     } 
     if (i == 3) {
-        for (let j = 2; j <= n-1; j++) {
+        for (let j = 2; j <= n - 1; j++) {
             arrUnder[i][j] = '0';
         }
     } 
     if (i == 4) {
-        for (let j = 1; j <= n-1; j++) {
+        for (let j = 1; j <= n - 1; j++) {
             arrUnder[i][j] = '0';
         }
     } 
 }
 console.log(arrUnder);
+
+//4.2
+let nn = 5;
+let arr = [];
+
+for (let i = 0; i <= nn - 1; i++) {
+    arr[i] = [];
+    for (let j = 0; j <= nn - 1; j++) {
+        arr[i][j] = '1';
+    }
+
+    if (i == 1) {
+        for (let j = 0; j <= 0; j++) {
+            arr[i][j] = '0';
+        }
+        for (let j = 4; j <= nn - 1; j++) {
+            arr[i][j] = '0';
+        }
+    }
+
+    if (i == 2) {
+        for (let j = 0; j <= 1; j++) {
+            arr[i][j] = '0';
+        }
+        for (let j = 3; j <= nn - 1; j++) {
+            arr[i][j] = '0';
+        }
+    }
+
+    if (i == 3) {
+        for (let j = 0; j <= 0; j++) {
+            arr[i][j] = '0';
+        }
+        for (let j = 4; j <= nn - 1; j++) {
+            arr[i][j] = '0';
+        }
+    }
+}
+console.log(arr);
+
+//4.3
