@@ -159,7 +159,6 @@ console.log(matchCars);
 const firstMatchedCar = matchCars[0];
 console.log(firstMatchedCar);
 
-
 //4
 let n = 5;
 let arr = [];
@@ -258,4 +257,3 @@ console.log(arr);
 console.log(diagonal);
 console.log(sides);
 console.log(cross);
-
