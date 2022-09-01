@@ -162,81 +162,100 @@ console.log(firstMatchedCar);
 
 //4
 let n = 5;
-let arrFull = [];
+let arr = [];
 for (let i = 0; i <= n - 1; i++) {
-    arrFull[i] = []; //столбцы каждая строка - будет новый пустой массив
-    for (j = 0; j <= n - 1 ; j++) {
-        arrFull[i][j] = '1';   // - строки, каждый новый пустой массив - заполняется 1
+    arr[i] = []; //столбцы каждая строка - будет новый пустой массив
+    for (let j = 0; j <= n - 1 ; j++) {
+        arr[i][j] = '1';   // - строки, каждый новый пустой массив - заполняется 1
     }
 }
-console.log(arrFull);
 
 // 4.1
-let arrUnder = [];
+let diagonal = [];
 for (let i = 0; i <= n - 1; i++) {
-    arrUnder[i] = [];
+    diagonal[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        arrUnder[i][j] = '1';
+        diagonal[i][j] = '1';
     }
     if (i == 1) {
-        arrUnder[i].pop();
-        arrUnder[i].push('0');
+        diagonal[i].pop();
+        diagonal[i].push('0');
     }
     if (i == 2) {
         for (let j = 3; j <= n - 1; j++) {
-            arrUnder[i][j] = '0';
+            diagonal[i][j] = '0';
         }
     } 
     if (i == 3) {
         for (let j = 2; j <= n - 1; j++) {
-            arrUnder[i][j] = '0';
+            diagonal[i][j] = '0';
         }
     } 
     if (i == 4) {
         for (let j = 1; j <= n - 1; j++) {
-            arrUnder[i][j] = '0';
+            diagonal[i][j] = '0';
         }
     } 
 }
-console.log(arrUnder);
 
 //4.2
-let nn = 5;
-let arr = [];
+let sides = [];
 
-for (let i = 0; i <= nn - 1; i++) {
-    arr[i] = [];
-    for (let j = 0; j <= nn - 1; j++) {
-        arr[i][j] = '1';
+for (let i = 0; i <= n - 1; i++) {
+    sides[i] = [];
+    for (let j = 0; j <= n - 1; j++) {
+        sides[i][j] = '1';
     }
-
-    if (i == 1) {
+    if (i == 1 || i == 3) {
         for (let j = 0; j <= 0; j++) {
-            arr[i][j] = '0';
+            sides[i][j] = '0';
         }
-        for (let j = 4; j <= nn - 1; j++) {
-            arr[i][j] = '0';
+        for (let j = 4; j <= n - 1; j++) {
+            sides[i][j] = '0';
         }
     }
-
     if (i == 2) {
         for (let j = 0; j <= 1; j++) {
-            arr[i][j] = '0';
+            sides[i][j] = '0';
         }
-        for (let j = 3; j <= nn - 1; j++) {
-            arr[i][j] = '0';
+        for (let j = 3; j <= n - 1; j++) {
+            sides[i][j] = '0';
         }
     }
+}
 
-    if (i == 3) {
+//4.3
+let cross = [];
+
+for (let i = 0; i <= n - 1; i++) {
+    cross[i] = [];
+    for (let j = 0; j <= n - 1; j++) {
+        cross[i][j] = '1';
+    }
+    if (i == 0 || i == 4) {
         for (let j = 0; j <= 0; j++) {
-            arr[i][j] = '0';
+            cross[i][j] = '0';
         }
-        for (let j = 4; j <= nn - 1; j++) {
-            arr[i][j] = '0';
+        for (let j = 4; j <= 4; j++) {
+            cross[i][j] = '0';
+        }
+    }
+    if (i == 1 || i == 3) {
+        for (let j = 0; j <= 1; j++) {
+            cross[i][j] = '0';
+        }
+        for (let j = 3; j <= 4; j++) {
+            cross[i][j] = '0';
+        }
+    }
+    if(i == 2) {
+        for (let j = 0; j <= n - 1; j++) {
+            cross[i][j] = '0';
         }
     }
 }
 console.log(arr);
+console.log(diagonal);
+console.log(sides);
+console.log(cross);
 
-//4.3
