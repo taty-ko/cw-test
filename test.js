@@ -100,12 +100,11 @@ for (let box of boxes) {
 
 //max width
 let maxWidth = boxes[0];
-for(let box of boxes) {
+for (let box of boxes) {
     if (maxWidth.width < box.width) {
         maxWidth = box
     }
 }
-
  //max depth
  let maxDepth = boxes[0];
  for (let box of boxes) {
@@ -113,16 +112,16 @@ for(let box of boxes) {
         maxDepth = box
     }  
 }
-console.log(maxDepth, 'Max depth');
-console.log(maxHeight, 'Max height');
-console.log(maxWidth, 'Max width');
+console.log('Max depth: ', maxDepth);
+console.log('Max height: ', maxHeight);
+console.log('Max width: ', maxWidth);
 
 // 3
 let sumWeight = 0;
 boxes.forEach(element => {
     sumWeight += element.weight
   });
-console.log(sumWeight, 'Total weight');
+console.log('Total weight: ', sumWeight);
 
 class Car {
     constructor(capacity) {
