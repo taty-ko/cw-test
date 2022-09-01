@@ -178,11 +178,40 @@ console.log(firstMatchedCar);
 
 //4
 let n = 5;
-let arr = [];
+let arrFull = [];
 for (let i = 0; i <= n-1; i++) {
-    arr[i] = []; //столбцы каждая строка - будет новый пустой массив
+    arrFull[i] = []; //столбцы каждая строка - будет новый пустой массив
     for (j = 0; j <= n-1 ; j++) {
-        arr[i][j] = '1';   // - строки, каждый новый пустой массив - заполняется 1
+        arrFull[i][j] = '1';   // - строки, каждый новый пустой массив - заполняется 1
     }
 }
-console.log(arr);
+console.log(arrFull);
+
+
+let arrUnder = [];
+for (let i = 0; i <= n - 1; i++) {
+    arrUnder[i] = [];
+    for (let j = 0; j <= n - 1; j++) {
+        arrUnder[i][j] = '1';
+    }
+    if (i == 1) {
+        arrUnder[i].pop();
+        arrUnder[i].push('0');
+    }
+    if (i == 2) {
+        for (let j = 3; j <= n-1; j++) {
+            arrUnder[i][j] = '0';
+        }
+    } 
+    if (i == 3) {
+        for (let j = 2; j <= n-1; j++) {
+            arrUnder[i][j] = '0';
+        }
+    } 
+    if (i == 4) {
+        for (let j = 1; j <= n-1; j++) {
+            arrUnder[i][j] = '0';
+        }
+    } 
+}
+console.log(arrUnder);
