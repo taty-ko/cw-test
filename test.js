@@ -14,7 +14,6 @@ class Weight {
         }
 
         this.weight = expWeight
-        this.type = type
     }
 }
 
@@ -58,7 +57,6 @@ let widthBoxSecond = new Length(1, 'm'),
 
 const boxSecond = new Box(widthBoxSecond.length, heightBoxSecond.length, deptBoxSecond.length, weightBoxSecond.weight);
 console.log(boxSecond);
-
 
 let widthBoxThree = new Length(1, 'km'),
     heightBoxThree = new Length(20, 'km'),
