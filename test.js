@@ -173,7 +173,6 @@ for (let i = 0; i <= n - 1; i++) {
     for (let j = 0; j <= n - 1; j++) {
         diagonal[i][j] = '1';
     }
-   
     if (i == diagonal.length - 1 && i != 0) {
         for (let j = n - diagonal.length + 1; j <= n - 1; j++) {
             diagonal[i][j] = '0';
@@ -187,22 +186,14 @@ let sides = [];
 for (let i = 0; i <= n - 1; i++) {
     sides[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        sides[i][j] = '1';
+        sides[i][j] = '0';
     }
-    if (i == 1 || i == 3) {
-        for (let j = 0; j <= 0; j++) {
-            sides[i][j] = '0';
+    if (i == sides.length - 1) {
+        for (let j = sides.length - 1; j <= n - sides.length; j++) {
+            sides[i][j] = '1';
         }
-        for (let j = 4; j <= n - 1; j++) {
-            sides[i][j] = '0';
-        }
-    }
-    if (i == 2) {
-        for (let j = 0; j <= 1; j++) {
-            sides[i][j] = '0';
-        }
-        for (let j = 3; j <= n - 1; j++) {
-            sides[i][j] = '0';
+        for (let j = n - sides.length; j <= sides.length - 1; j++) {
+            sides[i][j] = '1';
         }
     }
 }
