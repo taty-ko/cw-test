@@ -157,7 +157,7 @@ const firstMatchedCar = matchCars[0];
 console.log(firstMatchedCar);
 
 //4
-let n = 5;
+let n = 7;
 let arr = [];
 for (let i = 0; i <= n - 1; i++) {
     arr[i] = [];
@@ -173,25 +173,12 @@ for (let i = 0; i <= n - 1; i++) {
     for (let j = 0; j <= n - 1; j++) {
         diagonal[i][j] = '1';
     }
-    if (i == 1) {
-        diagonal[i].pop();
-        diagonal[i].push('0');
-    }
-    if (i == 2) {
-        for (let j = 3; j <= n - 1; j++) {
+   
+    if (i == diagonal.length - 1 && i != 0) {
+        for (let j = n - diagonal.length + 1; j <= n - 1; j++) {
             diagonal[i][j] = '0';
         }
-    } 
-    if (i == 3) {
-        for (let j = 2; j <= n - 1; j++) {
-            diagonal[i][j] = '0';
-        }
-    } 
-    if (i == 4) {
-        for (let j = 1; j <= n - 1; j++) {
-            diagonal[i][j] = '0';
-        }
-    } 
+    }    
 }
 
 //4.2
@@ -254,3 +241,7 @@ console.log(arr);
 console.log(diagonal);
 console.log(sides);
 console.log(cross);
+
+
+
+    
