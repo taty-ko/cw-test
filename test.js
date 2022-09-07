@@ -204,27 +204,14 @@ let cross = [];
 for (let i = 0; i <= n - 1; i++) {
     cross[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        cross[i][j] = '1';
+        cross[i][j] = '0';
     }
-    if (i == 0 || i == 4) {
-        for (let j = 0; j <= 0; j++) {
-            cross[i][j] = '0';
+    if (i == cross.length - 1) {
+        for (let j = cross.length; j <= n - cross.length - 1 ; j++) {
+            cross[i][j] = '1';
         }
-        for (let j = 4; j <= 4; j++) {
-            cross[i][j] = '0';
-        }
-    }
-    if (i == 1 || i == 3) {
-        for (let j = 0; j <= 1; j++) {
-            cross[i][j] = '0';
-        }
-        for (let j = 3; j <= 4; j++) {
-            cross[i][j] = '0';
-        }
-    }
-    if(i == 2) {
-        for (let j = 0; j <= n - 1; j++) {
-            cross[i][j] = '0';
+        for (let j = n - cross.length + 1; j <= cross.length - 2; j++) {
+            cross[i][j] = '1';
         }
     }
 }
