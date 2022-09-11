@@ -1,5 +1,10 @@
 'use strict';
-// 1
+// 1 
+// Init boxes without types. 
+// Created Classes for every dimensions. 
+// Every class includes method which converts data to the smallest one (Gramm and Centimeter).
+// Create array of 10 boxes used For loop and random method.
+
 class Weight {
     constructor (weight) {
         this.weight = weight
@@ -36,12 +41,12 @@ class Length {
 }
 class Centimeter extends Length {
     calculateLength() {
-        console.log('perda');
+        return this.length;
     }
 }
 class Meter extends Length {
     calculateLength() {
-        return this.length = length * 100;
+        return this.length * 100;
     }
 }
 class Kilometer extends Length {
@@ -76,7 +81,7 @@ let widthBoxFirst = new Centimeter(10),
     depthBoxFirst = new Centimeter(30),
     weightBoxFirst = new Kilo(10);
 
-const boxFirst = new Box(widthBoxFirst, heightBoxFirst, depthBoxFirst, weightBoxFirst);
+const boxFirst = new Box(widthBoxFirst.calculateLength(), heightBoxFirst.calculateLength(), depthBoxFirst.calculateLength(), weightBoxFirst.calculateWeight());
 console.log(boxFirst);
 
 let widthBoxSecond = new Meter(1),
@@ -84,14 +89,41 @@ let widthBoxSecond = new Meter(1),
     deptBoxSecond = new Meter(3),
     weightBoxSecond = new Tonne(1);
 
-const boxSecond = new Box(widthBoxSecond, heightBoxSecond, deptBoxSecond, weightBoxSecond);
+const boxSecond = new Box(widthBoxSecond.calculateLength(), heightBoxSecond.calculateLength(), deptBoxSecond.calculateLength(), weightBoxSecond.calculateWeight());
 console.log(boxSecond);
 
 let widthBoxThree = new Kilometer(1),
     heightBoxThree = new Kilometer(20),
     depthBoxThree = new Kilometer(0.5),
     weightBoxThree = new Gramm(100);
-const boxThree = new Box(widthBoxThree, heightBoxThree, depthBoxThree, weightBoxThree);
+const boxThree = new Box(widthBoxThree.calculateLength(), heightBoxThree.calculateLength(), depthBoxThree.calculateLength(), weightBoxThree.calculateWeight());
 console.log(boxThree);
+
+//Init boxes.
+console.group('Init 10 rundom boxes:');
+let boxes = [];
+for (let i = 1; i <= 10; i++) {
+    let width,
+        height,
+        depth,
+        weight;
+    if (i % 2 != 0) {
+        width = new Kilometer((Math.random()*i).toFixed(0)),
+        height = new Kilometer((Math.random()*i).toFixed(0)),
+        depth = new Kilometer((Math.random()*i).toFixed(0)),
+        weight = new Tonne((Math.random()*i).toFixed(0));
+    } else {
+        width = new Meter((Math.random()*i).toFixed(0)),
+        height = new Meter((Math.random()*i).toFixed(0)),
+        depth = new Meter((Math.random()*i).toFixed(0)),
+        weight = new Kilo((Math.random()*i).toFixed(0));
+    }
+
+    const box = new Box(width.calculateLength(), height.calculateLength(), depth.calculateLength(), weight.calculateWeight());
+    boxes.push(box);
+}
+console.log(boxes);
+console.groupEnd();
+
 
 
