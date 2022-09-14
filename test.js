@@ -97,7 +97,6 @@ for (let box of boxes) {
        maxHeight = box;
    }
 }
-
 //max width
 let maxWidth = boxes[0];
 for (let box of boxes) {
@@ -165,7 +164,6 @@ for (let i = 0; i <= n - 1; i++) {
         arr[i][j] = '1';
     }
 }
-
 // 4.1
 let diagonal = [];
 for (let i = 0; i <= n - 1; i++) {
@@ -178,10 +176,8 @@ for (let i = 0; i <= n - 1; i++) {
         }
     }   
 }
-
 //4.2
 let sides = [];
-
 for (let i = 0; i <= n - 1; i++) {
     sides[i] = [];
     for (let j = 0; j <= n - 1; j++) {
@@ -198,10 +194,8 @@ for (let i = 0; i <= n - 1; i++) {
         }
     }
 }
-
 //4.3
 let cross = [];
-
 for (let i = 0; i <= n - 1; i++) {
     cross[i] = [];
     for (let j = 0; j <= n - 1; j++) {
