@@ -171,13 +171,12 @@ let diagonal = [];
 for (let i = 0; i <= n - 1; i++) {
     diagonal[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        diagonal[i][j] = '1';
-    }
-    if (i == diagonal.length - 1 && i != 0) {
-        for (let j = n - diagonal.length + 1; j <= n - 1; j++) {
+        if (j < n - i) {
+            diagonal[i][j] = '1';
+        } else {
             diagonal[i][j] = '0';
         }
-    }    
+    }   
 }
 
 //4.2
@@ -186,13 +185,15 @@ let sides = [];
 for (let i = 0; i <= n - 1; i++) {
     sides[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        sides[i][j] = '0';
-    }
-    if (i == sides.length - 1) {
-        for (let j = sides.length - 1; j <= n - sides.length; j++) {
-            sides[i][j] = '1';
-        }
-        for (let j = n - sides.length; j <= sides.length - 1; j++) {
+        if (i <= (n - 1) / 2 && j >= n - i) {
+            sides[i][j] = '0'
+        } else if (i <= (n - 1) / 2 && j < i) {
+            sides[i][j] = '0'
+        } else if (i > (n - 1) / 2 && j < (n - 1) - i) {
+            sides[i][j] = '0'
+        } else if (i > (n - 1) / 2 && j > i) {
+            sides[i][j] = '0'
+        } else {
             sides[i][j] = '1';
         }
     }
@@ -204,13 +205,15 @@ let cross = [];
 for (let i = 0; i <= n - 1; i++) {
     cross[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        cross[i][j] = '0';
-    }
-    if (i == cross.length - 1) {
-        for (let j = cross.length; j <= n - cross.length - 1 ; j++) {
-            cross[i][j] = '1';
-        }
-        for (let j = n - cross.length + 1; j <= cross.length - 2; j++) {
+        if (i <= (n - 1) / 2 && j <= i) {
+            cross[i][j] = '0';
+        } else if (i <= (n - 1) / 2 && j >= (n - 1) - i) {
+            cross[i][j] = '0';
+        } else if (i > (n - 1) / 2 && j <= (n - 1) - i) {
+            cross[i][j] = '0';
+        } else if (i > (n - 1) / 2 && j >= i) {
+            cross[i][j] = '0';
+        } else {
             cross[i][j] = '1';
         }
     }
@@ -219,7 +222,3 @@ console.log(arr);
 console.log(diagonal);
 console.log(sides);
 console.log(cross);
-
-
-
-    
