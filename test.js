@@ -181,13 +181,9 @@ let sides = [];
 for (let i = 0; i <= n - 1; i++) {
     sides[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        if (i <= (n - 1) / 2 && j >= n - i) {
+        if (i <= (n - 1) / 2 && (j >= n - i || j < i)) {
             sides[i][j] = '0'
-        } else if (i <= (n - 1) / 2 && j < i) {
-            sides[i][j] = '0'
-        } else if (i > (n - 1) / 2 && j < (n - 1) - i) {
-            sides[i][j] = '0'
-        } else if (i > (n - 1) / 2 && j > i) {
+        }  else if (i > (n - 1) / 2 && (j < (n - 1) - i || j > i)) {
             sides[i][j] = '0'
         } else {
             sides[i][j] = '1';
@@ -199,20 +195,20 @@ let cross = [];
 for (let i = 0; i <= n - 1; i++) {
     cross[i] = [];
     for (let j = 0; j <= n - 1; j++) {
-        if (i <= (n - 1) / 2 && j <= i) {
+        if (i <= (n - 1) / 2 && (j <= i || j >= (n - 1) - i)) {
             cross[i][j] = '0';
-        } else if (i <= (n - 1) / 2 && j >= (n - 1) - i) {
-            cross[i][j] = '0';
-        } else if (i > (n - 1) / 2 && j <= (n - 1) - i) {
-            cross[i][j] = '0';
-        } else if (i > (n - 1) / 2 && j >= i) {
+        } else if (i > (n - 1) / 2 && (j <= (n - 1) - i || j >= i)) {
             cross[i][j] = '0';
         } else {
             cross[i][j] = '1';
         }
     }
 }
+console.log('General array:');
 console.log(arr);
+console.log('Displaced diagonal:');
 console.log(diagonal);
+console.log('Left and right "ladders", the diagonal is not included:');
 console.log(sides);
+console.log('Left and right "ladders" and included the diagonal:');
 console.log(cross);
